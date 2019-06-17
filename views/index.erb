@@ -1,10 +1,12 @@
 <h3>Do you want to break the code or make the code?</h3>
 <form action="/" method="POST">
-  <select name="role">
+  <%# <select name="role">
 	  <option value="break">Codebreaker</option>
 		<option value="make">Codemaker</option>
 	</select>
-	<input type="submit">
+	<input type="submit"> %>
+	<input type="submit" name="role" value="codemaker"/>
+	<input type="submit" name="role" value="codebreaker"/>
 </form>
 <h2>Rules of Mastermind</h2>
 <p>

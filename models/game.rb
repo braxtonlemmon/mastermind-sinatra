@@ -1,5 +1,3 @@
-#!/home/braxton/.rbenv/shims/ruby
-
 require_relative 'computer'
 
 class Game
@@ -10,11 +8,9 @@ class Game
 		@board = Array.new(12) { Array.new(6) { "_" } }
 		@computer = Computer.new
 		@answer = role == "codebreaker" ? (Array.new(4) { computer.random_peg }) : nil
-		@codebreaker = false
 		@turn = 0
 		@guess = Array.new(4)
 	end
-
 
 	def computer_play(params)
 		@answer = convert_guess(params)
@@ -22,18 +18,10 @@ class Game
 	  record_guess(@guess)
 	end
 
-	def play_as_codemaker
-
-		puts "This is the secret code: [#{answer.join(" | ")}]\nThe computer will now attempt to guess your code..."
-		loop_turns
-		play_again? ? (game = Game.new) : return
-	end
-
 	def game_over?
 		win? || @turn == 12
 	end
 
-  # updates board after each guess
 	def record_guess(try)
 		(0..3).each { |i| @board[@turn][i] = try[i] }
 		results = determine_guess_results
@@ -42,14 +30,13 @@ class Game
 		@turn += 1
 	end
 
-	# converts params to array after each guess
 	def convert_guess(params)
 		@guess = []
 		params.each { |key, value| @guess << value }
 		@guess
 	end
 
-	# finds number of white and black pegs after each guess
+	# TODO: refactor and split into smaller methods
 	def determine_guess_results
 		b_pegs = 0
 		w_pegs = 0

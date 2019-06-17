@@ -1,16 +1,5 @@
-#!/home/braxton/.rbenv/shims/ruby
-
 class Computer
 	attr_accessor :guess, :final
-
-	CODE_PEGS = {
-		0 => "A",
-		1 => "B",
-		2 => "C",
-		3 => "D",
-		4 => "E",
-		5 => "F"
-	}
 
 	def initialize
 		@guess = Array.new(4)
@@ -18,7 +7,7 @@ class Computer
 	end
 
 	def random_peg
-		letter = CODE_PEGS[rand(6)]
+		["A", "B", "C", "D", "E", "F"].sample
 	end
 
 	def generate_guess(answer)
@@ -27,5 +16,4 @@ class Computer
 		(0..3).each { |i| (final[i] = try[i]) if (answer[i] == try[i])}	
 		try
 	end
-
 end

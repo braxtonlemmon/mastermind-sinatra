@@ -10,9 +10,8 @@ get "/" do
 end
 
 post "/" do
-	role = params[:role] == "break" ? :codebreaker : :codemaker
-	session[:game] = Game.new(role.to_s)
-  redirect role
+	session[:game] = Game.new(params[:role])
+	redirect params[:role]
 end
 
 get "/codemaker" do
