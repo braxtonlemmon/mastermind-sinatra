@@ -1,1 +1,25 @@
-<h1>MASTERMIND</h1>
+<h3>Do you want to break the code or make the code?</h3>
+<form action="/" method="POST">
+  <select name="role">
+	  <option value="break">Codebreaker</option>
+		<option value="make">Codemaker</option>
+	</select>
+	<input type="submit">
+</form>
+<h2>Rules of Mastermind</h2>
+<p>
+The game consists of a codemaker and a codebreaker.</br>
+There are six types of code pegs: [A] [B] [C] [D] [E] [F]</br>
+There are two types of key pegs: [W] [Z]</br>
+
+The codemaker will choose a hidden pattern of any combination of four code pegs.</br>
+Duplicates can be included.</br>
+For example, the codemaker might choose: [C] [A] [C] [F]</br>
+
+The codebreaker has 12 attempts to correctly guess the hidden pattern.</br> 
+After each guess,the codemaker will use the key pegs to give hints.</br>
+Each [W] peg shown signifies a correct code peg in the right position.</br>
+Each [Z] peg shown signifies a correct code peg, but in the wrong position.</br>
+
+The codemaker receives one point for each attempt made by the codebreaker.</br>
+</p>

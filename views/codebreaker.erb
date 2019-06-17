@@ -1,0 +1,48 @@
+
+<div class="board">
+	<table class="rows">
+	  <tr>
+		  <th> 1     </th>
+			<th> 2     </th>
+			<th> 3     </th>
+			<th> 4     </th>
+			<th> Black </th>
+			<th> White </th>
+		</tr>
+		<% @board.each_with_index do |row, i| %>
+		  <tr>
+				<td>[<%= row[0] %>]</td>
+				<td>[<%= row[1] %>]</td>
+				<td>[<%= row[2] %>]</td>
+				<td>[<%= row[3] %>]</td>
+				<td>[<%= row[4] %>] </td>
+				<td>[<%= row[5] %>] </td>
+			</tr>
+		<% end %>
+	</table>
+	
+	<% unless @stop %>
+		<form class="pegs" action="/codebreaker" method="POST">
+			<% (0..3).each do |x| %>
+				<select name="peg<%= x %>">
+					<option value="A">A</option>
+					<option value="B">B</option>
+					<option value="C">C</option>
+					<option value="D">D</option>
+					<option value="E">E</option>
+					<option value="F">F</option>
+				</select>
+			<% end %>
+			<input type="submit" value="Guess"/>
+		</form>
+	<% end %>
+
+	<div class="end">
+	  <% if @message %>
+			<p>Game over!</p>
+			<%= @message %>
+			<form action="/" method="GET">
+  			<input type="submit" value="PLAY AGAIN"/>
+			</form>
+		<% end %>
+</div>

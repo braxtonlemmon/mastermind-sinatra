@@ -1,0 +1,8 @@
+.board {
+	margin: auto;
+	text-align: center;
+}
+
+.pegs {
+	display: inline;
+}
