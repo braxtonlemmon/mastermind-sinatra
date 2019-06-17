@@ -20,7 +20,7 @@
 			</tr>
 		<% end %>
 	</table>
-	
+
 	<% unless @stop %>
 		<form class="pegs" action="/codebreaker" method="POST">
 			<% (0..3).each do |x| %>
@@ -41,8 +41,9 @@
 	  <% if @message %>
 			<p>Game over!</p>
 			<%= @message %>
-			<form action="/" method="GET">
-  			<input type="submit" value="PLAY AGAIN"/>
-			</form>
 		<% end %>
+	</div>
+	<form action="/" method="GET">
+  	<input type="submit" value="NEW GAME"/>
+	</form>
 </div>

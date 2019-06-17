@@ -1,7 +1,7 @@
 #!/home/braxton/.rbenv/shims/ruby
 
 class Computer
-	attr_accessor :score, :guess, :final
+	attr_accessor :guess, :final
 
 	CODE_PEGS = {
 		0 => "A",
@@ -13,7 +13,6 @@ class Computer
 	}
 
 	def initialize
-		@score = 0
 		@guess = Array.new(4)
 		@final = Array.new(4)
 	end
@@ -24,9 +23,9 @@ class Computer
 
 	def generate_guess(answer)
 		try = Array.new(4)
-		final.each_with_index { |x, i| x.nil? ? (try[i] = random_peg) : (try[i] = x) }
+		final.each_with_index { |x, i| try[i] = x.nil? ? random_peg : x }
 		(0..3).each { |i| (final[i] = try[i]) if (answer[i] == try[i])}	
-		return try
+		try
 	end
 
 end

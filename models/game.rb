@@ -4,24 +4,26 @@ require_relative 'computer'
 
 class Game
 
-
 	attr_accessor :board, :computer, :answer, :guess, :turn
 	
-	def initialize
+	def initialize(role)
 		@board = Array.new(12) { Array.new(6) { "_" } }
 		@computer = Computer.new
-		@answer = Array.new(4) { computer.random_peg }
+		@answer = role == "codebreaker" ? (Array.new(4) { computer.random_peg }) : nil
 		@codebreaker = false
 		@turn = 0
 		@guess = Array.new(4)
 	end
 
 
+	def computer_play(params)
+		@answer = convert_guess(params)
+    @guess = computer.generate_guess(@answer)
+	  record_guess(@guess)
+	end
+
 	def play_as_codemaker
-		until answer.size == 4 && answer.all? { |x| x.match(/[A-F]/) }
-			puts "\nYou are the codemaker. Enter any four-letter combination of the letters [ A | B | C | D | E | F ]: "
-			@answer = gets.chomp.upcase.split('')
-		end
+
 		puts "This is the secret code: [#{answer.join(" | ")}]\nThe computer will now attempt to guess your code..."
 		loop_turns
 		play_again? ? (game = Game.new) : return
