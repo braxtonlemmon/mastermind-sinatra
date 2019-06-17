@@ -2,6 +2,7 @@ require "sinatra"
 require "sinatra/reloader" if development?
 require "./models/game"
 
+
 enable :sessions
 
 get "/" do
@@ -37,6 +38,7 @@ get "/codebreaker" do
 	@board = game.board
 	if game.game_over?
 		@stop = true 
+		@answer = game.answer
 		@message = game.win? ? "You guessed it!" : "Wah wah, game lost."
 	end
   erb :codebreaker

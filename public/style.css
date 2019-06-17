@@ -1,8 +1,60 @@
-.board {
+*{ 
+	font-family: 'Courier New', Courier, monospace;
+	background: green;
+}
+
+h1 {
+	width: 400px;
 	margin: auto;
+	text-align: center;
+	border: 4px double black;
+}
+
+h1, h3 {
 	text-align: center;
 }
 
+.role {
+	width: 250px;
+  margin: auto;
+	text-align: center;
+}
+
+input, select {
+	color: black;
+	border: 2px solid black;
+	border-radius: 3px;
+	text-decoration: none;
+}
+
+input:hover {
+	color: white;
+	cursor: pointer;
+}
+
+.rules {
+	margin: 50px 0 0 30px;
+	padding-left: 10px;
+	width: 700px;
+	border: 2px dotted black;
+}
+
+.board {
+  padding-top: 30px;
+	margin: auto;
+	text-align: center;
+	display: block;
+}
+
+.rows {
+	margin: auto;
+}
+
 .pegs {
-	display: inline;
+	margin: 10px;
+}
+
+.new-game {
+	position: fixed;
+	bottom: 50px;
 }

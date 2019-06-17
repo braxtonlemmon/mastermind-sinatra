@@ -1,13 +1,14 @@
-<p>You are the codemaker</p>
 <div class="board">
+	<p>You are the codemaker</p>
 	<table class="rows">
 	  <tr>
 		  <th> 1     </th>
 			<th> 2     </th>
 			<th> 3     </th>
 			<th> 4     </th>
-			<th> Black </th>
-			<th> White </th>
+			<th> ... </th>
+			<th> [B] </th>
+			<th> [W] </th>
 		</tr>
 		<% @board.each_with_index do |row, i| %>
 		  <tr>
@@ -15,6 +16,7 @@
 				<td>[<%= row[1] %>]</td>
 				<td>[<%= row[2] %>]</td>
 				<td>[<%= row[3] %>]</td>
+				<td> ... </td>
 				<td>[<%= row[4] %>] </td>
 				<td>[<%= row[5] %>] </td>
 			</tr>
@@ -44,7 +46,7 @@
 		<% end %>
 	</div>
 
-	<form action="/" method="GET">
+	<form class="new-game" action="/" method="GET">
   	<input type="submit" value="NEW GAME"/>
 	</form>
 </div>
